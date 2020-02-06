@@ -1,5 +1,7 @@
 <script>
 
+import AddBookForm from './components/AddBook.svelte'
+
 let books = [
 	{
 		bookName: "For whom the Bell Tolls",
@@ -22,6 +24,12 @@ let books = [
 		price: 400
 	},
 ]
+
+const addNewBook = event =>{
+	console.log(event.detail);
+
+	books = [event.detail, ...books]
+}
 	
 </script>
 
@@ -32,11 +40,12 @@ let books = [
 		flex-direction: column;
 		background-color: #eeee;
 		margin: 10px 10px 10px 10px;
+		margin-top: 7vh;
 		padding-left: 20px;
 		padding-right: 20px;
 		font-family: Roboto;
-		margin-left: 10vw;
-		margin-right: 10vw;
+		margin-left: 35vw;
+		margin-right: 35vw;
 		text-align: center;
 		border-radius: 3px;
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -69,6 +78,8 @@ let books = [
 		margin-bottom: 10px;
 	}
 </style>
+
+<AddBookForm on:addNewBook={addNewBook}/>
 
 {#if books.length === 0}
 	<p>No books available</p>
