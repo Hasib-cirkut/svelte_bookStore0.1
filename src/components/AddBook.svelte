@@ -42,6 +42,11 @@
 
     button{
         margin-bottom: 2vh;
+        cursor: pointer;
+    }
+
+    button:hover{
+        background: rgb(192, 192, 192)
     }
 
 </style>
